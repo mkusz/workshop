@@ -25,5 +25,6 @@ jobs:
         run: poetry run pytest
         shell: bash
         env:
-          USERNAME: ${{ env.USERNAME }}
-          PASSWORD: ${{ env.PASSWORD }}
+          QA_USERNAME: ${{ env.USERNAME }}
+          QA_PASSWORD: ${{ env.PASSWORD }}
+          QA_BASE_URL: ${{ env.BASE_URL }}
