@@ -6,7 +6,7 @@ from http import HTTPStatus
 
 class AdminAuth(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file='.env',
+        env_file='.env2',
         env_file_encoding='utf-8',
         extra='ignore',
         env_prefix="QA_",
@@ -18,7 +18,7 @@ class AdminAuth(BaseSettings):
 
 class EnvSettings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file='.env',
+        env_file='.env2',
         env_file_encoding='utf-8',
         extra='ignore',
         env_prefix="QA_",
