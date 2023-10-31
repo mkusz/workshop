@@ -6,10 +6,6 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    env:
-      QA_USERNAME: ${{ env.USERNAME }}
-      QA_PASSWORD: ${{ secrets.PASSWORD }}
-      QA_BASE_URL: ${{ env.BASE_URL }}
     steps:
       - name: Install poetry
         run: pipx install --python python poetry==1.5.1
@@ -28,3 +24,7 @@ jobs:
       - name: Run tests
         run: poetry run pytest
         shell: bash
+        env:
+          QA_USERNAME: ${{ env.USERNAME }}
+          QA_PASSWORD: ${{ secrets.PASSWORD }}
+          QA_BASE_URL: ${{ env.BASE_URL }}
