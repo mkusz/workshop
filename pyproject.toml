@@ -17,9 +17,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-addopts = "--tb=short"
-log_cli = true
-log_cli_level = "INFO"
+addopts = "--tb=short -p no:warnings"
 markers = [
     "deprecated: Tests no longer used",
     "smoke: Smoke tests",

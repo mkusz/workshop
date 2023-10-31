@@ -39,21 +39,12 @@ def env_settings() -> EnvSettings:
 
 
 @pytest.fixture
-def admin_cookie(admin_auth) -> dict:
+def admin_cookie(admin_auth, env_settings) -> dict:
     response = requests.post(
-        url="https://restful-booker.herokuapp.com/auth",
+        url=f"{env_settings.base_url}auth",
         json=admin_auth.model_dump(),
     )
     if response.status_code == HTTPStatus.OK:
         return {"Cookie": f"token={response.json()['token']}"}
     else:
         raise RuntimeError("Auth token retrival error")
-
-
-LOG_FILTERS = ["faker.factory", "urllib3.connectionpool"]
-
-
-def pytest_configure():
-    for logger_name in LOG_FILTERS:
-        logger = logging.getLogger(logger_name)
-        logger.disabled = True
